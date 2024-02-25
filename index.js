@@ -1,5 +1,6 @@
 const express = require('express');
 require("dotenv").config();
+bodyParser = require('body-parser')
 const database = require("./config/database");
 
 // Router Ver1
@@ -9,6 +10,9 @@ database.connect();
 
 const app = express();
 const port = process.env.PORT;
+
+// parse application/json
+app.use(bodyParser.json())
 
 // Router Ver1
 routesVer1(app);
