@@ -1,6 +1,7 @@
 const express = require('express');
 require("dotenv").config();
-bodyParser = require('body-parser')
+bodyParser = require('body-parser');
+var cors = require('cors');
 const database = require("./config/database");
 
 // Router Ver1
@@ -10,6 +11,13 @@ database.connect();
 
 const app = express();
 const port = process.env.PORT;
+
+// var corsOptions = {
+//   origin: 'http://example.com',
+// }
+// app.use(cors(corsOptions))
+
+app.use(cors())
 
 // parse application/json
 app.use(bodyParser.json())
